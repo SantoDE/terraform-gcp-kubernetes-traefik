@@ -55,6 +55,7 @@ resource "kubernetes_replication_controller" "traefik" {
       container {
         image = "traefik:latest"
         name  = "traefik"
+        args  = ["--api", "--kubernetes", "--logLevel=INFO"]
       }
     }
   }
