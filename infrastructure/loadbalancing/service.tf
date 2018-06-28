@@ -52,10 +52,26 @@ resource "kubernetes_replication_controller" "traefik" {
     }
 
     template {
+      service_account_name = "${kubernetes_service_account.traefik.metadata.0.name}"
+
+      volume {
+        name = "${kubernetes_service_account.traefik.default_secret_name}"
+
+        secret {
+          secret_name = "${kubernetes_service_account.traefik.default_secret_name}"
+        }
+      }
+
       container {
         image = "traefik:latest"
         name  = "traefik"
-        args  = ["--api", "--kubernetes", "--logLevel=INFO"]
+        args  = ["--api", "--kubernetes", "--logLevel=DEBUG"]
+
+        volume_mount {
+          mount_path = "/var/run/secrets/kubernetes.io/serviceaccount"
+          name       = "${kubernetes_service_account.traefik.default_secret_name}"
+          read_only  = "false"
+        }
       }
     }
   }
