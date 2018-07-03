@@ -1,7 +1,8 @@
+# This is used to attach cluster-admin to the current kubectl account 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: datakube-cluster-admin
+  name: cluster-admin
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

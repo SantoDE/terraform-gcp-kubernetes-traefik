@@ -8,7 +8,7 @@ metadata:
     traefik.frontend.priority: "1"
 spec:
   rules:
-  - host: whoami.gce.manuel-zapf.de
+  - host: whoami.traefikgke
     http:
       paths:
       - path: /

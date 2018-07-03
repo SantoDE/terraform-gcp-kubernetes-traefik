@@ -8,7 +8,7 @@ metadata:
     traefik.frontend.priority: "1"
 spec:
   rules:
-  - host: nginx.gce.manuel-zapf.de
+  - host: nginx.traefikgke
     http:
       paths:
       - path: /

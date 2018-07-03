@@ -1,3 +1,4 @@
+# Setup GKE Cluster
 resource "google_container_cluster" "default" {
   name               = "tf-gke-k8s"
   zone               = "${var.zone}"

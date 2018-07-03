@@ -1,8 +1,10 @@
+# Setup Network
 resource "google_compute_network" "default" {
   name                    = "${var.network_name}"
   auto_create_subnetworks = "false"
 }
 
+# Setup Subnetwork
 resource "google_compute_subnetwork" "default" {
   name                     = "${var.network_name}"
   ip_cidr_range            = "10.127.0.0/20"
