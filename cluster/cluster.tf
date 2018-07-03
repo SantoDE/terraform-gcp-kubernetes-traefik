@@ -5,9 +5,6 @@ resource "google_container_cluster" "default" {
   min_master_version = "${data.google_container_engine_versions.default.latest_node_version}"
   network            = "${google_compute_subnetwork.default.name}"
   subnetwork         = "${google_compute_subnetwork.default.name}"
-  project            = "${google_project.project.project_id}"
-
-  depends_on = ["google_project_service.services"]
 
   node_config {
     machine_type = "${var.gke_machine_type}"
