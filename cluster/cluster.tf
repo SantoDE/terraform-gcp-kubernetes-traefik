@@ -12,11 +12,6 @@ resource "google_container_cluster" "default" {
   node_config {
     machine_type = "${var.gke_machine_type}"
   }
-
-  master_auth {
-    username = "${var.gke_username}"
-    password = "${var.gke_password}"
-  }
 }
 
 output cluster_zone {
