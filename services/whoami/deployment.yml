@@ -1,0 +1,20 @@
+# declare Traefik deployment
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: whoami-demo
+  labels:
+    app: whoami-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whoami-demo
+  template:
+    metadata:
+      labels:
+        app: whoami-demo
+    spec:
+      containers:
+      - name: whoami
+        image: "emilevauge/whoami"

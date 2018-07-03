@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.passHostHeader: "false"
+    traefik.frontend.priority: "1"
+spec:
+  rules:
+  - host: nginx.gce.manuel-zapf.de
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx-demo
+          servicePort: 80
