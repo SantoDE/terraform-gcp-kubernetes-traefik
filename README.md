@@ -32,6 +32,7 @@ please enter your valid GCP account email.
 
 ### Create Cluster
 ```
+terraform init
 terraform apply
 ```
 
