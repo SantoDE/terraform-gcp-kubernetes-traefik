@@ -18,7 +18,7 @@ export GOOGLE_PROJECT=$(gcloud config get-value project)
 
 As of RBAC Constraints on GKE, it's necessary to edit one file. 
 
-[permissions.yml](../services/traefik/01_permissions.yml)
+[permissions.yml](services/traefik/01_permissions.yml)
 
 On line 12
 ```
