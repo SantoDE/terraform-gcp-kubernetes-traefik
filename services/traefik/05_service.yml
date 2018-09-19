@@ -3,6 +3,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: traefik-ingress-controller
+  namespace: kube-system
 spec:
   selector:
     app: traefik-ingress-controller
