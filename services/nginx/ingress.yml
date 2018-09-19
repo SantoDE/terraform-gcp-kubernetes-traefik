@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: nginx-ingress
+  namespace: kube-system
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.frontend.passHostHeader: "false"
