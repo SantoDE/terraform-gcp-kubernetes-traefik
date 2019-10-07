@@ -22,13 +22,19 @@ rules:
       - get
       - list
       - watch
+  - apiGroups:
+    - "extensions"
+    resources:
+    - ingresses/status
+    verbs:
+    - update
 ---
 # create Traefik service account
 kind: ServiceAccount
 apiVersion: v1
 metadata:
   name: traefik-ingress-controller
-  namespace: default
+  namespace: kube-system
 ---
 # bind role with service account
 kind: ClusterRoleBinding
@@ -42,4 +48,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: traefik-ingress-controller
-  namespace: default
+  namespace: kube-system

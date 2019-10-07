@@ -3,6 +3,7 @@ kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: traefik-ingress-controller
+  namespace: kube-system
 spec:
   replicas: 1
   template:
@@ -18,12 +19,11 @@ spec:
             name: traefik-config
       containers:
       - name: traefik
-        image: "traefik:1.6"
+        image: "traefik:1.7.0-rc5"
         volumeMounts:
           - mountPath: "/etc/traefik/config"
             name: config
         args:
         - --configfile=/etc/traefik/config/traefik.toml
         - --api
-        - --kubernetes
         - --logLevel=DEBUG

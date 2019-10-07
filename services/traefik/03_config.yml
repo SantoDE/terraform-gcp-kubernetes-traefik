@@ -3,6 +3,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: traefik-config
+  namespace: kube-system
 data:
   traefik.toml: |
     # traefik.toml
@@ -10,3 +11,6 @@ data:
     [entryPoints]
       [entryPoints.http]
       address = ":80"
+    [kubernetes]
+      [kubernetes.ingressEndpoint]
+        publishedService = "kube-system/traefik-ingress-controller"

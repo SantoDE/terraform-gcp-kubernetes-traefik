@@ -10,4 +10,4 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: manuel@datakube.io
+  name: me@manuelzapf.io
